@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 200" width="820" height="200">
+  <defs>
+    <linearGradient id="os-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c6ff"/>
+      <stop offset="45%" stop-color="#4f8eff"/>
+      <stop offset="100%" stop-color="#a259ff"/>
+    </linearGradient>
+    <linearGradient id="underline-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00c6ff"/>
+      <stop offset="60%" stop-color="#a259ff"/>
+      <stop offset="100%" stop-color="#0d0f14" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="820" height="200" fill="#0d0f14" rx="16"/>
+
+  <text x="72" y="140" font-family="'Arial Black', 'Impact', sans-serif" font-size="90" font-weight="900" fill="#2a2f3d" letter-spacing="-4">{</text>
+  <text x="740" y="140" font-family="'Arial Black', 'Impact', sans-serif" font-size="90" font-weight="900" fill="#2a2f3d" letter-spacing="-4">}</text>
+
+  <text x="138" y="138" font-family="'Arial Black', 'Impact', sans-serif" font-size="86" font-weight="900" fill="#ffffff" letter-spacing="-3">Interview</text>
+
+  <text x="586" y="138" font-family="'Arial Black', 'Impact', sans-serif" font-size="86" font-weight="900" fill="url(#os-grad)" letter-spacing="-3">OS</text>
+
+  <circle cx="724" cy="52" r="9" fill="#1cb87e"/>
+  <circle cx="724" cy="52" r="14" fill="none" stroke="#1cb87e" stroke-width="2" opacity="0.3"/>
+
+  <rect x="138" y="148" width="590" height="3" rx="1.5" fill="url(#underline-grad)" opacity="0.7"/>
+
+  <rect x="100" y="24" width="12" height="2" fill="#2a2f3d"/>
+  <rect x="100" y="24" width="2" height="12" fill="#2a2f3d"/>
+  <rect x="706" y="24" width="12" height="2" fill="#2a2f3d"/>
+  <rect x="716" y="24" width="2" height="12" fill="#2a2f3d"/>
+  <rect x="100" y="172" width="12" height="2" fill="#2a2f3d"/>
+  <rect x="100" y="162" width="2" height="12" fill="#2a2f3d"/>
+  <rect x="706" y="172" width="12" height="2" fill="#2a2f3d"/>
+  <rect x="716" y="162" width="2" height="12" fill="#2a2f3d"/>
+</svg>
