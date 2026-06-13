@@ -118,7 +118,7 @@ export default function Landing() {
         </div>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-600">
+        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-400">
           <span className="text-xs tracking-widest uppercase">Scroll</span>
           <span className="text-lg animate-bounce">↓</span>
         </div>
