@@ -13,7 +13,6 @@ import {
   Activity,
   FileCode2,
   TerminalSquare,
-  FileText,
   Clock,
   BookOpen,
   TestTube2,

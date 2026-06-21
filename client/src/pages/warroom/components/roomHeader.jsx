@@ -20,9 +20,9 @@ export default function RoomHeader({ onEndRoom }) {
   const isInterviewer =
     user && interviewerId && String(interviewerId) === String(user._id);
 
-  // useEffect(() => {
-  //   if (roomError) showToast(roomError, false);
-  // }, [roomError]);
+  useEffect(() => {
+    if (roomError) showToast(roomError, false);
+  }, [roomError]);
 
   async function copyRoomId() {
     try {

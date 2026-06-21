@@ -4,7 +4,6 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { nanoid } from "nanoid";
 import { Interview } from "../models/interview.models.js";
-import { User } from "../models/user.models.js";
 import { callLlama } from "../config/llama.js";
 import mongoose from "mongoose";
 export const startRoom = asyncHandler(async (req, res) => {

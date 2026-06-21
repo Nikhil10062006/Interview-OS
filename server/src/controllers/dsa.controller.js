@@ -1,11 +1,9 @@
 // ROUTE BASE: /api/dsa
-import { User } from "../models/user.models.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Dsa } from "../models/dsa.models.js";
 import { nanoid } from "nanoid";
-import mongoose from "mongoose";
 
 // POST /add
 export const addDSAQuestion = asyncHandler(async (req, res) => {

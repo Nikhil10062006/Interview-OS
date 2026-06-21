@@ -33,7 +33,6 @@ const DEFAULT_BOTTOM_HEIGHT = 240;
 export default function LiveRoom() {
   const { roomId } = useParams();
   const navigate = useNavigate();
-  // const editorUpdateTimer = useRef(null);
   const latestCodeRef = useRef("");
   const [status, setStatus] = useState("loading");
   const [granted, setGranted] = useState(false);
@@ -199,16 +198,6 @@ export default function LiveRoom() {
     latestCodeRef.current = "";
   }, [editorResetTrigger]);
 
-  // useEffect(() => {
-  //   if (isInterviewer && candidate) {
-  //     setTimeout(() => {
-  //       if (latestCodeRef.current) handleCodeChange(latestCodeRef.current);
-  //       if (testCases?.length && problem?.problemId) {
-  //         handleTestCasesUpdate(problem.problemId, testCases);
-  //       }
-  //     }, 800);
-  //   }
-  // }, [candidate, isInterviewer]);
 
   useEffect(() => {
     if (!roomEnded || isInterviewer) return;

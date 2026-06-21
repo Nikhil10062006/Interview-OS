@@ -217,26 +217,12 @@ export const RoomProvider = ({ children }) => {
     }
   }
 
-  // async function handleUpdateLanguage(roomId, language) {
-  //   setLoading(true);
-  //   setError(null);
-  //   try {
-  //     const response = await updateLanguage(roomId, language);
-  //     setRoom((prev) => ({ ...prev, language: response.data.data }));
-  //   } catch (error) {
-  //     setError(error.response?.data?.message || error.message);
-  //     throw error;
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
-
   async function handleGenerateReport(roomId) {
     setLoading(true);
     setError(null);
     try {
       const response = await generateReport(roomId);
-      // response.data.data is the parsed object — stringify it so InterviewerNotes can JSON.parse it
+      
       setRoom((prev) => ({
         ...prev,
         report: JSON.stringify(response.data.data),
@@ -254,7 +240,6 @@ export const RoomProvider = ({ children }) => {
     setError(null);
     try {
       await blockCandidate(roomId);
-      // no state update needed — block just sets a flag on the DB
     } catch (error) {
       setError(error.response?.data?.message || error.message);
       throw error;
@@ -263,18 +248,18 @@ export const RoomProvider = ({ children }) => {
     }
   }
   async function handleGetRoomDetail(roomId) {
-  setLoading(true);
-  setError(null);
-  try {
-    const response = await getRoomDetail(roomId);
-    setRoom(response.data.data);
-  } catch (error) {
-    setError(error.response?.data?.message || error.message);
-    throw error;
-  } finally {
-    setLoading(false);
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await getRoomDetail(roomId);
+      setRoom(response.data.data);
+    } catch (error) {
+      setError(error.response?.data?.message || error.message);
+      throw error;
+    } finally {
+      setLoading(false);
+    }
   }
-}
 
   function clearRoom() {
     setRoom(null);

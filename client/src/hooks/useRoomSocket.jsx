@@ -20,7 +20,7 @@ export const useRoomSocket = (roomId, room) => {
   const endingRef = useRef(false);
   const problemStartTimeRef = useRef(null);
   const currentCodeRef = useRef("");
-  const candidateIdRef = useRef(null); // fix: avoid stale closure in next-problem
+  const candidateIdRef = useRef(null); 
 
   useEffect(() => {
     if (!room || !user) return;
@@ -48,7 +48,7 @@ export const useRoomSocket = (roomId, room) => {
 
     roomSocket.on("candidate-joined", (incomingCandidate) => {
       setCandidate(incomingCandidate);
-      candidateIdRef.current = String(incomingCandidate._id); // keep ref in sync
+      candidateIdRef.current = String(incomingCandidate._id); 
     });
 
     roomSocket.on("code-change", (incomingCode) => {
@@ -84,7 +84,6 @@ export const useRoomSocket = (roomId, room) => {
     });
 
     roomSocket.on("next-problem", async () => {
-      // fix: use ref instead of stale closure over room.candidate
       const isCandidate =
         candidateIdRef.current && candidateIdRef.current === String(user._id);
 
@@ -123,7 +122,6 @@ export const useRoomSocket = (roomId, room) => {
       const isCandidate =
         candidateIdRef.current && candidateIdRef.current === String(user._id);
 
-      // endingRef prevents double-save when room ends normally via interview-ended event
       if (
         isCandidate &&
         !endingRef.current &&
@@ -144,10 +142,9 @@ export const useRoomSocket = (roomId, room) => {
       roomSocket.off();
       roomSocket.disconnect();
     };
-  }, [room?.roomId, user?._id]); // fix: stable primitives only, no object refs
+  }, [room?.roomId, user?._id]); 
 
   function handleCodeChange(newCode) {
-    // fix: removed isRemoteChange guard — was blocking valid local changes
     currentCodeRef.current = newCode;
     roomSocket.emit("code-change", { roomId, code: String(newCode) });
   }
