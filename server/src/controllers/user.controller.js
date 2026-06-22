@@ -19,7 +19,6 @@ export const generateAccessAndRefresh = async function (user) {
 };
 
 export const registerUser = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { username, email, password } = req.body;
   if (
     [username, email, password].some((field) => !field || field.trim() === "")
@@ -50,7 +49,6 @@ export const registerUser = asyncHandler(async (req, res) => {
 });
 
 export const loginUser = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { email, password } = req.body;
   if ([email, password].some((field) => !field || field.trim() === "")) {
     throw new ApiError(400, `Some of the fields is/are empty.Please fill it.`);

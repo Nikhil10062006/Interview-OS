@@ -16,7 +16,6 @@ export const callLlama = async (prompt) => {
     });
 
     const rawResponse = completion.choices[0].message.content;
-    console.log(" AI Success! Sending payload to controller...");
     return rawResponse;
   } catch (error) {
     console.error(" AI API Error:", error.message || error);
