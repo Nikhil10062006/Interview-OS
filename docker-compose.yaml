@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./server
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      NODE_ENV: production
+      CORS_ORIGIN: http://localhost
+      DB_URL: mongodb+srv://Nikhil:Nikhil1006@cluster0.0g1xdfe.mongodb.net
+      ACCESS_TOKEN_SECRET: ak8pNYI1B24XaIMWLwrffQuumLPawFsg
+      ACCESS_TOKEN_EXPIRY: 1d
+      REFRESH_TOKEN_SECRET: tQMIOmlSyW2yFy6GdSL0q1yKpkDcJqYY
+      REFRESH_TOKEN_EXPIRY: 7d
+      NVIDIA_API_KEY: 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
+      EXECUTION_API_CLIENT_ID: 892f5a1c24ae8af43590335e095c4839
+      EXECUTION_API_KEY: ce7713b2f8d1f51d34ce40174c9d44cb33238fab4bb62b318946b1254c75e5bb 
+
+  frontend:
+    build:
+      context: ./client
+      args:
+        VITE_API_URL: http://localhost:5000/api/v1
+        VITE_SOCKET_URL: http://localhost:5000/room
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
