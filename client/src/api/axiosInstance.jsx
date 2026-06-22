@@ -1,7 +1,6 @@
 import axios from "axios";
-
-const baseURL = "http://localhost:5000/api/v1";
-
+const baseURL = import.meta.env.VITE_API_URL;
+if (!baseURL) throw new Error("VITE_API_URL is not set in .env");
 const axiosInstance = axios.create({
   baseURL,
   withCredentials: true,
@@ -21,7 +20,7 @@ axiosInstance.interceptors.response.use(
     const originalRequest = error.config;
 
     if (error.response?.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true; 
+      originalRequest._retry = true;
 
       try {
         const res = await axios.post(
@@ -34,7 +33,7 @@ axiosInstance.interceptors.response.use(
         if (newAccessToken) {
           localStorage.setItem("accessToken", newAccessToken);
           originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-          return axiosInstance(originalRequest); 
+          return axiosInstance(originalRequest);
         }
       } catch (refreshError) {
         localStorage.removeItem("accessToken");

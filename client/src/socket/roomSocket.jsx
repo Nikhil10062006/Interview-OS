@@ -1,7 +1,6 @@
 import { io } from "socket.io-client";
-const URL = "http://localhost:5000/room";
+const URL = import.meta.env.VITE_SOCKET_URL;
 export const roomSocket = io(URL, {
   autoConnect: false,
-   auth: {},
+  auth: {},
 });
-
