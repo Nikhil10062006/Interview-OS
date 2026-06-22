@@ -57,7 +57,6 @@ export const loginUser = asyncHandler(async (req, res) => {
   if (!registeredUser) {
     throw new ApiError(400, "User Not found with this email");
   }
-  console.log(registeredUser);
   const isPassCorrect = await registeredUser.isPasswordCorrect(password);
   if (!isPassCorrect) {
     throw new ApiError(400, "Wrong Password . Please try again");
